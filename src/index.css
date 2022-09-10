@@ -48,7 +48,11 @@ h2 {
 }
 
 h1 {
-  font-family: Lobster, "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-family: Combo,"Playfair Display",Lobster, "Josefin Sans", Helvetica, Arial, sans-serif;
+  /*font-style:italic;
+  font-weight:bold;
+  font-display:swap;*/
+
   font-size: 4em;
   color: #051c33;
 }
