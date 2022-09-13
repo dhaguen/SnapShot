@@ -13,7 +13,7 @@ class App extends Component {
 
     if (e.type == "submit")
     {
-    e.currentTarget.reset();
+      e.currentTarget.reset();
     }
     let url = `/search/${searchInput}`;
     history.push(url);
