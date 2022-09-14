@@ -11,7 +11,7 @@ class App extends Component {
   handleSubmit = (e, history, searchInput) => {
     e.preventDefault();
 
-    if (e.type == "submit")
+    if (e.type === "submit")
     {
       e.currentTarget.reset();
     }
