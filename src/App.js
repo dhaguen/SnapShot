@@ -11,26 +11,27 @@ class App extends Component {
 
   // Prevent page reload, clear input, set URL and push history on submit
   handleSubmit = (e, history, searchInput) => {
+
     e.preventDefault();
     
-    if (this.handleSubmit.lastSearch === undefined)
-    {
-      this.handleSubmit.lastSearch = "cat"
-    } 
+    let searchpath = history.location.pathname;
+    let searchHistory = searchpath.substring(searchpath.lastIndexOf('/')+1);
 
-    if (searchInput === "last search")
+    if (searchpath === "" && searchInput === "")
     {
-      searchInput = this.handleSubmit.lastSearch
+      searchInput = "cat"
     }
-    else
+
+    if (searchInput === "LAST_SEARCH")
     {
-      this.handleSubmit.lastSearch = searchInput
+      searchInput = searchHistory;
     }
 
     if (e.type === "submit")
     {
       e.currentTarget.reset();
     }
+    
     let url = `/search/${searchInput}`;
     history.push(url);
   };

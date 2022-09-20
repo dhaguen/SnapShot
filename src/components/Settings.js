@@ -8,7 +8,7 @@ const Settings = ({ handleSubmit, history }) => {
     
     function onNbImagesPerPageChange(event)
     {
-        handleSubmit(event, history, "last search")
+        handleSubmit(event, history, "LAST_SEARCH")
         SETTINGS_NB_IMAGES_PER_PAGE = event.target.value
     }
 
