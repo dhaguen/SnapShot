@@ -3,7 +3,6 @@ import React from "react";
 // TODO : make interface
 export let SETTINGS_NB_IMAGES_PER_PAGE = 4;
 
-
 const Settings = ({ handleSubmit, history }) => {
     
     function onNbImagesPerPageChange(event)
@@ -15,8 +14,8 @@ const Settings = ({ handleSubmit, history }) => {
     return (
         <form className="settings-form" >
             <label>
-                Nombre d'images par page :
-                <select onChange={onNbImagesPerPageChange}>
+                Nombre d'images :
+                <select className="settings-select-nbimages" onChange={onNbImagesPerPageChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -25,7 +24,6 @@ const Settings = ({ handleSubmit, history }) => {
                     <option value="16">16</option>
                     <option value="32">32</option>
                 </select>
-
             </label>
         </form>
     );

@@ -237,3 +237,15 @@ input {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
   }
 }
+
+
+.settings-form {
+  transform: scale(1.0);
+} 
+ 
+.settings-select-nbimages {
+
+  transform: scale(1.2);
+  padding-left: 0px;
+  background-color: #1491c3;
+}
