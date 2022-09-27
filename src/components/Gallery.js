@@ -1,6 +1,7 @@
 import React from "react";
 import NoImages from "./NoImages";
-import Image from "./Image";
+import ModalImage from "react-modal-image";
+
 const Gallery = props => {
   const results = props.data;
   let images;
@@ -14,7 +15,12 @@ const Gallery = props => {
       let secret = image.secret;
       let title = image.title;
       let url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-      return <Image url={url} key={id} alt={title} />;
+      return ( 
+      <div>
+        <li>        
+          <ModalImage small={url} large={url} alt={title}/>;
+        </li>
+      </div>)
     });
   } else {
     noImages = <NoImages />; // return 'not found' component if no images fetched

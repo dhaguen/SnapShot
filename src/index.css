@@ -221,7 +221,7 @@ input {
     width: 200px;
     overflow: hidden;
     height: 200px;
-    z-index: 9999;
+    /* z-index: 9999; incompatible with the react modal image (module) icons */
   }
 
   .forkongithub a {
