@@ -15,14 +15,14 @@ const Settings = ({ handleSubmit, history }) => {
         <form className="settings-form" >
             <label>
                 Nombre d'images :
-                <select className="settings-select-nbimages" onChange={onNbImagesPerPageChange}>
+                <select className="settings-select-nbimages" defaultValue = {SETTINGS_NB_IMAGES_PER_PAGE}  onChange={onNbImagesPerPageChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4" selected>4</option>
+                    <option alue="4">4</option>
                     <option value="8">8</option>
                     <option value="16">16</option>
-                    <option value="32">32</option>
+                    <option value="128">128</option>
                 </select>
             </label>
         </form>
