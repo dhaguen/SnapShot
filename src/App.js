@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <PhotoContextProvider>
-        <HashRouter basename="/SnapScout">
+        <HashRouter basename="/">
           <div className="container">
             <Route
               render={props => (
