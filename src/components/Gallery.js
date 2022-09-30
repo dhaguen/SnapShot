@@ -14,11 +14,13 @@ const Gallery = props => {
       let id = image.id;
       let secret = image.secret;
       let title = image.title;
-      let url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+      let small_image_url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+      let large_image_url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_b.jpg`;
+      //https://www.flickr.com/services/api/flickr.photos.getSizes.html
       return ( 
       <div>
         <li>        
-          <ModalImage small={url} large={url} alt={title}/>;
+          <ModalImage small={small_image_url} large={large_image_url} alt={title}/>;
         </li>
       </div>)
     });
