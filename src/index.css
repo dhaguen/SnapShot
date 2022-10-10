@@ -179,13 +179,60 @@ input {
 .settings-form {
   transform: scale(1.0);
 } 
- 
+
+.settings-toggle-box {
+
+  display:flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.settings-toggle-btn {
+  
+  float: right;
+  background-color: white;
+  border: 0px;
+}
+
+.settings-toggle-btn:hover {
+  
+  float: right;
+  background-color: white;
+  border: 0px;
+}
+
+.settings-toggle-btn:active {
+  
+  float: right;
+  background-color: white;
+  border: 0px;
+}
+
+.settings-toggle-btn:focus {
+  
+  float: right;
+  background-color: white;
+  border: 0px;
+}
+
+.settings-toggle-img {
+
+  float: right;
+  height:16px;
+  width:auto;
+}
+
 .settings-select-nbimages {
 
-  transform: scale(1.2);
+  transform: scale(1.0);
   padding-left: 0px;
-  background-color: #1491c3;
 }
+
+.settings-card {
+  background-color: white;
+  border: 0px;
+}
+
 .__react_modal_image__medium_img {
 object-fit: contain;
   max-width: 100%;
