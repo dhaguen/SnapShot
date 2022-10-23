@@ -1,8 +1,12 @@
 import axios from "axios";
 import { apiKey } from "../src/api/config.js";
+import {getImageSizes, getMultiImageSizes} from "./apiUtils.js";
 
 const TEST_QUERY_NB_IMAGES = 10;
-const TEST_QUERY_SEARCH_STRING = 'bird'
+const TEST_QUERY_SEARCH_STRING = 'bird';
+const TEST_QUERY_ONE_PHOTO_ID = 52440310112;
+const TEST_QUERY_THREE_PHOTO_ID = [52410896747,52437820843,52436189999];
+
 
 async function runSearch(query) {
 
@@ -34,32 +38,20 @@ test('API query : 10images must be return', async() => {
   expect(data.length).toBe(TEST_QUERY_NB_IMAGES);
 });
 
+test('API query : Small image fetch width must not be 0', async() => {
 
-/* const getRequest = async () => {
-  const url = "https://jsonplaceholder.typicode.com/posts/1";
+  const [w, h] = await getImageSizes(TEST_QUERY_ONE_PHOTO_ID, 'Small');
 
-  let output = undefined;
+  let smallImgWidth  = typeof w != 'undefined' ? w : 0;
+  let smallImgHeight = typeof h != 'undefined' ? h : 0;
 
-  console.log("getRequest : DEBUG ")
+  expect(smallImgWidth).not.toBe(0);
+});
 
-  await axios
-    .get(url)
-    .then((response) => {
-      console.log("axios then = ", response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .then(() => {
-      console.log("THEN : all others cases.")
-    })
-    ;
-}; */
+test('API query : must be able to query several with from image in a row', async() => {
 
-/* test('debug test', async () => {
+  const withHeightArray = await getMultiImageSizes(TEST_QUERY_THREE_PHOTO_ID, 'Small');
 
-  const response = await getRequest();
-  console.log("test response = ", response);
-}); */
+  expect(withHeightArray.length).toBe(TEST_QUERY_THREE_PHOTO_ID.length);
 
-
+});
