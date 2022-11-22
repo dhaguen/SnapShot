@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { PhotoContext } from "../context/PhotoContext";
 import Gallery from "./Gallery";
-import GalleryDebug from "./GalleryDebug";
-import Loader from "./Loader";
+import JustifiedGallery from "./JustifiedGallery";
 
 import { SETTINGS_NB_IMAGES_PER_PAGE } from "./Settings";
-import { GALLERY_DEBUG_MODE } from "./Settings";
 
 const Container = ({ searchTerm }) => {
 
@@ -18,17 +16,10 @@ const Container = ({ searchTerm }) => {
 
   }, [searchTerm, SETTINGS_NB_IMAGES_PER_PAGE]);
 
-  useEffect(() => {
-
-    runInfo(images);
-  }, [images]);
-
   return (
-    <div className="photo-container">
-      {loading ? <Loader /> :
-        GALLERY_DEBUG_MODE ? <GalleryDebug data={images} extraInfos={imageExtraInfos} /> :
-          <Gallery data={images} />}
-    </div>
+    <JustifiedGallery>
+      <Gallery data={images} />
+    </JustifiedGallery>
   );
 };
 

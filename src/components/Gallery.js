@@ -1,6 +1,5 @@
 import React from "react";
 import NoImages from "./NoImages";
-import ModalImage from "react-modal-image";
 
 const Gallery = props => {
   const results = props.data;
@@ -14,23 +13,24 @@ const Gallery = props => {
       let id = image.id;
       let secret = image.secret;
       let title = image.title;
-      let small_image_url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+      let small_image_url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_n.jpg`;
       let large_image_url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_b.jpg`;
       //https://www.flickr.com/services/api/flickr.photos.getSizes.html
-      return ( 
-      <div>
-        <li>        
-          <ModalImage small={small_image_url} large={large_image_url} alt={title}/>;
-        </li>
-      </div>)
+
+      return (
+        <a href={large_image_url}>
+          <img alt={title} src={small_image_url} />
+        </a>
+      );
     });
+
   } else {
     noImages = <NoImages />; // return 'not found' component if no images fetched
   }
+  
   return (
-    <div>
-      <ul>{images}</ul>
-      {noImages}
+    <div id ="myGallery">
+      {images}
     </div>
   );
 };
