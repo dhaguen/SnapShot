@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button';
 
 import img_settings_button_blue from '../settings-button-blue.jpg'
 import img_settings_button_gray from '../settings-button-gray.jpg'
 
 // TODO : make interface
+export let RELATIVE_PATH_BASE_NAME = "/Snapshot_modified_html"
 export let SETTINGS_NB_IMAGES_PER_PAGE = 128;
 export let GALLERY_DEBUG_MODE = false;
 

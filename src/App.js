@@ -6,6 +6,7 @@ import Item from "./components/Item";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
 
+import { RELATIVE_PATH_BASE_NAME } from "./components/Settings";
 
 class App extends Component {
 
@@ -32,14 +33,14 @@ class App extends Component {
       e.currentTarget.reset();
     }
     
-    let url = `/search/${searchInput}`;
+    let url = `/${searchInput}`;
     history.push(url);
   };
 
   render() {
     return (
       <PhotoContextProvider>
-        <BrowserRouter basename="/" forceRefresh={true}>
+        <BrowserRouter basename={RELATIVE_PATH_BASE_NAME} forceRefresh={true}>
           <div className="container">
             <Route
               render={props => (
@@ -63,12 +64,13 @@ class App extends Component {
               <Route path="/beach" render={() => <Item searchTerm="beach" />} />
               <Route path="/bird" render={() => <Item searchTerm="bird" />} />
               <Route path="/food" render={() => <Item searchTerm="food" />} />
+              
               <Route
-                path="/search/:searchInput"
+                path="/:searchInput"
                 render={props => (
                   <Search searchTerm={props.match.params.searchInput} />
-                )}
-              />
+                )}/>
+
               <Route component={NotFound} />
             </Switch>
           </div>
