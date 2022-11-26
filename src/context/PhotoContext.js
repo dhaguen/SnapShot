@@ -13,10 +13,13 @@ const PhotoContextProvider = props => {
   const [loading, setLoading] = useState(true);
   const [imageExtraInfos, setImageExtraInfos] = useState([]);
 
+  let nbImagePerPage = parseInt(sessionStorage.getItem('selectedOption') || SETTINGS_NB_IMAGES_PER_PAGE)
+
+
   const runSearch = query => {
     axios
       .get(
-        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=${SETTINGS_NB_IMAGES_PER_PAGE}&format=json&nojsoncallback=1`
+        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=${nbImagePerPage}&format=json&nojsoncallback=1`
       )
       .then(response => {
         setImages(response.data.photos.photo);

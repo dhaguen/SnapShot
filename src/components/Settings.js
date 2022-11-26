@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Accordion from "react-bootstrap/Accordion";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
@@ -9,7 +9,7 @@ import img_settings_button_gray from '../settings-button-gray.jpg'
 
 // TODO : make interface
 export let RELATIVE_PATH_BASE_NAME = "/Snapshot_modified_html"
-export let SETTINGS_NB_IMAGES_PER_PAGE = 128;
+export let SETTINGS_NB_IMAGES_PER_PAGE = 16;
 export let GALLERY_DEBUG_MODE = false;
 
 function SettingsToggle({ children, eventKey }) {
@@ -40,24 +40,33 @@ function SettingsToggle({ children, eventKey }) {
 
 const SettingsNbImages = ({ handleSubmit, history }) => {
 
+  const [selectedOption, setSelectedOption] = useState(1)
+
+  useEffect(() => {
+    const storedSelectedOption = parseInt(sessionStorage.getItem('selectedOption') || SETTINGS_NB_IMAGES_PER_PAGE)
+    setSelectedOption(storedSelectedOption)
+  }, [])
+
   function onNbImagesPerPageChange(event) {
+    
+    setSelectedOption(parseInt(event.target.value))
+    sessionStorage.setItem('selectedOption', event.target.value)
     handleSubmit(event, history, "LAST_SEARCH")
-    SETTINGS_NB_IMAGES_PER_PAGE = event.target.value
   }
 
   return (
     <form className="settings-form" >
       <label>
         Nombre d'images :
-        <select className="settings-select-nbimages" defaultValue={SETTINGS_NB_IMAGES_PER_PAGE} onChange={onNbImagesPerPageChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option alue="4">4</option>
-          <option value="8">8</option>
-          <option value="16">16</option>
-          <option value="128">128</option>
-          <option value="1024">1024</option>
+        <select className="settings-select-nbimages" onChange={onNbImagesPerPageChange}>
+          <option value="1" selected={selectedOption === 1}>1</option>
+          <option value="2" selected={selectedOption === 2}>2</option>
+          <option value="3" selected={selectedOption === 3}>3</option>
+          <option alue="4"selected={selectedOption === 4} >4</option>
+          <option value="8" selected={selectedOption === 8}>8</option>
+          <option value="16" selected={selectedOption === 16}>16</option>
+          <option value="128" selected={selectedOption === 128}>128</option>
+          <option value="1024" selected={selectedOption === 1024}>1024</option>
         </select>
       </label>
     </form>
