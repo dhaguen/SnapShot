@@ -14,11 +14,12 @@ const JustifiedGallery = (props) => {
       margins: 8,      
     }).on('jg.complete', function () {
       $("#myGallery").find('a').colorbox({
-          maxWidth : '80%',
-          maxHeight : '80%',
+          maxWidth : '90%',
+          maxHeight : '90%',
           opacity : 1.0,
-          transition : 'elastic',
-          current : ''
+          transition : 'fade',
+          speed: 400,
+          rel : "group"
       });
   });  
   
