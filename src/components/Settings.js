@@ -14,10 +14,10 @@ export let GALLERY_DEBUG_MODE = false;
 
 function SettingsToggle({ children, eventKey }) {
 
-  const [isExpanded, setExpand] = useState(false);
+  const isExpanded = parseInt(sessionStorage.getItem('settingsExpanded') || 0);
 
   const decoratedOnClick = useAccordionButton(eventKey, () => {
-    setExpand(!isExpanded);
+    sessionStorage.setItem('settingsExpanded', isExpanded ? 0 : 1);
   });
 
   return (
@@ -75,13 +75,16 @@ const SettingsNbImages = ({ handleSubmit, history }) => {
 
 const Settings = ({ handleSubmit, history }) => {
 
+  const storedSettingsExpanded = parseInt(sessionStorage.getItem('settingsExpanded') || 0)
+
   return (
+    
     <Accordion defaultActiveKey="1">
       <Card className="settings-card">
         <Card.Header className="settings-card">
-          <SettingsToggle eventKey="0">Settings</SettingsToggle>
+          <SettingsToggle eventKey={`${storedSettingsExpanded}`}>Settings</SettingsToggle>
         </Card.Header>
-        <Accordion.Collapse eventKey="0">
+        <Accordion.Collapse eventKey={`${storedSettingsExpanded}`}>
           <Card.Body>
             <SettingsNbImages history={history} handleSubmit={handleSubmit} />
           </Card.Body>
