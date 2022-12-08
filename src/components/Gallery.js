@@ -7,7 +7,7 @@ const Gallery = props => {
   let noImages;
   // map variables to each item in fetched image array and return image component
   if (results.length > 0) {
-    images = results.map(image => {
+    images = results.map((image, index) => {
       let farm = image.farm;
       let server = image.server;
       let id = image.id;
@@ -18,8 +18,8 @@ const Gallery = props => {
       //https://www.flickr.com/services/api/flickr.photos.getSizes.html
 
       return (
-        <a href={large_image_url}>
-          <img alt={title} src={small_image_url} />
+        <a href={large_image_url} key={id + secret + index}>
+          <img alt={title} src={small_image_url} key={id + secret + index + 1}/>
         </a>
       );
     });

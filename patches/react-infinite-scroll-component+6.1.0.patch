@@ -1,0 +1,40 @@
+diff --git a/node_modules/react-infinite-scroll-component/.DS_Store b/node_modules/react-infinite-scroll-component/.DS_Store
+new file mode 100644
+index 0000000..73af679
+Binary files /dev/null and b/node_modules/react-infinite-scroll-component/.DS_Store differ
+diff --git a/node_modules/react-infinite-scroll-component/dist/.DS_Store b/node_modules/react-infinite-scroll-component/dist/.DS_Store
+new file mode 100644
+index 0000000..d420922
+Binary files /dev/null and b/node_modules/react-infinite-scroll-component/dist/.DS_Store differ
+diff --git a/node_modules/react-infinite-scroll-component/dist/index.es.js b/node_modules/react-infinite-scroll-component/dist/index.es.js
+index 628595f..a0d9056 100644
+--- a/node_modules/react-infinite-scroll-component/dist/index.es.js
++++ b/node_modules/react-infinite-scroll-component/dist/index.es.js
+@@ -307,7 +307,9 @@ var InfiniteScroll = /** @class */ (function (_super) {
+             pullToRefreshThresholdBreached: false,
+             prevDataLength: props.dataLength,
+         };
+-        _this.throttledOnScrollListener = throttle(150, _this.onScrollListener).bind(_this);
++        // DH ... Modified the delay of the throttle to avoid too much loading when scrolling.
++        //_this.throttledOnScrollListener = throttle(150, _this.onScrollListener).bind(_this);
++        _this.throttledOnScrollListener = throttle(2000, _this.onScrollListener).bind(_this);
+         _this.onStart = _this.onStart.bind(_this);
+         _this.onMove = _this.onMove.bind(_this);
+         _this.onEnd = _this.onEnd.bind(_this);
+diff --git a/node_modules/react-infinite-scroll-component/dist/index.js b/node_modules/react-infinite-scroll-component/dist/index.js
+index a51bb4c..110e776 100644
+--- a/node_modules/react-infinite-scroll-component/dist/index.js
++++ b/node_modules/react-infinite-scroll-component/dist/index.js
+@@ -313,7 +313,7 @@ var InfiniteScroll = /** @class */ (function (_super) {
+             prevDataLength: props.dataLength,
+         };
+         _this.throttledOnScrollListener = throttle(150, _this.onScrollListener).bind(_this);
+-        _this.onStart = _this.onStart.bind(_this);
++      _this.onStart = _this.onStart.bind(_this);
+         _this.onMove = _this.onMove.bind(_this);
+         _this.onEnd = _this.onEnd.bind(_this);
+         return _this;
+diff --git a/node_modules/react-infinite-scroll-component/src/.DS_Store b/node_modules/react-infinite-scroll-component/src/.DS_Store
+new file mode 100644
+index 0000000..75bde3a
+Binary files /dev/null and b/node_modules/react-infinite-scroll-component/src/.DS_Store differ
