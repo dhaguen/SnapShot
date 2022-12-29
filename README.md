@@ -1,20 +1,28 @@
-# Snap Shot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=See%20this%20react%20example&url=https://yog9.github.io/SnapShot/&hashtags=react,context-api,freecodecamp,developers)
+# The Gallery
 
-[![Build Status](https://travis-ci.org/Yog9/SnapShot.svg?branch=master)](https://travis-ci.org/Yog9/SnapShot)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.com/Yog9/SnapShot.svg)](http://hits.dwyl.com/Yog9/SnapShot)
 
-[Demo of Snap Shot](https://yog9.github.io/SnapShot/)
+[Demo of The Gallery](https://dev.davidhaguenauer.com/Snapshot_modified_html/)
 
-![](/snapscout.png)
+![](/thegallerycout.png)
 
 ### Summary
 
-Snap Shot is a gallery created using React,React Hooks, React Router and Context API. The Routes were setup for four default pages and a search page. Also the images were displayed using the Flickr API and axios to fetch data.
+The Gallery is forked from the [Snap Shot gallery](https://github.com/Yog9/SnapShot) with new featured added :
+
+
+As [Yogita Verma](https://github.com/Yog9) the author of Snap Shot indicated : "Snap Shot is a gallery created using React,React Hooks, React Router and Context API. The Routes were setup for four default pages and a search page. Also the images were displayed using the Flickr API and axios to fetch data."
+
+The features added are :
+- Elegant Thumbnail display
+- Adding setting pan
+- Infinite Scroll
+- Modal display enlarged image from thumbnail one with carousel (lightbox)
+
 
 ### Motivation
 
-The purpose of this project was to get familiar with React Hooks and Context API.
+The purpose of this project was to get familiar with React and its ecosystem in a learning
+by doing mode.
 
 ### Getting Started
 
@@ -37,16 +45,17 @@ Create a config.js file in api folder inside src folders. In config.js file writ
 - React Hooks
 - Context API
 - Flickr API
+- jQuery
+- [Justified Gallery](https://miromannino.github.io/Justified-Gallery/)
+- [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component)
+- [Colorbox - a jQuery lightbox](http://www.jacklmoore.com/colorbox/)
+- [react-bootstrap/Accordion](https://react-bootstrap.github.io)
 
 ### Features
 
 **1. Responsive Design.**
 
 **2. Search functionality added to search photos from API.**
-
-### Coming Soon
-
-- [ ] Cypress E2E Tests
 
 ### Contributing
 
